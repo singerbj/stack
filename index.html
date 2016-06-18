@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Stacking Game</title>
+    <style>
+    .noselect {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    #canvas {
+        border:1px solid #000000;
+        position: absolute;
+        left: calc(50% - 350px);
+        top: calc(50% - 350px);
+    }
+    #score {
+        position: absolute;
+        left: calc(50% - 350px);
+        top: calc(50% - 200px);
+        width: 700px;
+        text-align: center;
+        font-size: 30px;
+    }
+    #reset {
+        position: absolute;
+        left: calc(50% - 350px);
+        top: calc(50% - 100px);
+        width: 700px;
+        text-align: center;
+        font-size: 14px;
+        display: none;
+    }
+    </style>
+  </head>
+  <body class="noselect">
+    <canvas id="canvas" width="700" height="700" style=""></canvas>
+    <div id="score"></div>
+    <div id="reset"><a href>Reset</a></div>
+    <script src='app.js'></script>
+  </body>
+</html>
