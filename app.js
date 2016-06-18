@@ -55,7 +55,7 @@ var createAndAddRect = function(x, y, w, h){
 
 //add initial Rect
 var height = 15;
-var width = 200;
+var width = 300;
 var movingShape = createAndAddRect((canvas.width / 2) - (width / 2), canvas.height - height, width, height);
 var previousShape;
 var score = 0;
@@ -122,8 +122,8 @@ var update = function(dt) {
                 direction = 'left';
             }
         }else if(direction === 'left' ){
-            if((movingShape.x - 3) > 0){
-                movingShape.x -= 3;
+            if((movingShape.x - 4) > 0){
+                movingShape.x -= 4;
             }else{
                 direction = 'right';
             }
