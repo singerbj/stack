@@ -104,6 +104,13 @@ var onClickOrSpaceBar = function(e) {
                 }
             }
         }
+
+        if(movingShape.w < 4){
+            playing = false;
+            scoreDiv.innerHTML = "YOU LOSE! Score: " + score;
+            reset.style.display = 'block';
+        }
+
         if(playing === true){
             previousShape = movingShape;
             movingShape = createAndAddRect((rand(0, 2) === 0 ? 0 : (canvas.width - previousShape.w)), (previousShape.y - height), previousShape.w, height);
