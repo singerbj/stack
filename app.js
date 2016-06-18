@@ -34,7 +34,9 @@ var drawShape = function(s) {
 
     ctx.fillStyle = s.color;
     ctx.fill();
-    // ctx.stroke();
+    ctx.strokeStyle = '#eee';
+    ctx.lineWidth = "1.5";
+    ctx.stroke();
 };
 
 var rand = function(min, max) {
@@ -45,12 +47,28 @@ var entities = {};
 
 var createAndAddRect = function(x, y, w, h){
     var thing = Rectangle(x, y, w, h, {
-        color: 'black'
+        color: randomColor()
     });
     drawShape(thing);
     entities[thing.id] = thing;
 
     return thing;
+};
+
+var componentToHex =function (c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+};
+
+var rgbToHex = function (r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+};
+
+var randomColor = function(){
+    var r = rand(0,50);
+    var g = rand(0,100);
+    var b = 255;
+    return rgbToHex(r, g, b);
 };
 
 //add initial Rect
@@ -78,7 +96,6 @@ var onClickOrSpaceBar = function(e) {
                 scoreDiv.innerHTML = "YOU LOSE! Score: " + score;
                 reset.style.display = 'block';
             }else{
-                previousShape.color = '#'+Math.floor(Math.random()*16777215).toString(16);
                 if(movingShape.x < previousShape.x){
                     movingShape.w = movingShape.w - (previousShape.x - movingShape.x);
                     movingShape.x = previousShape.x;
